@@ -1,0 +1,20 @@
+model:
+  embed_dim: 256
+  hidden_dim: 256
+  num_layers: 3
+
+training:
+  epochs: 2
+  lr: 0.0001
+  weight_decay: 0.00001
+  batch_size: 32
+
+data:
+  test_size: 0.2
+  val_size: 0.5
+  random_state: 42
+
+generation:
+  max_new_tokens: 20
+  top_k: 20
+  temperature: 1.0
