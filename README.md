@@ -61,7 +61,6 @@ pip install torch==2.5.1+cu124 --index-url https://download.pytorch.org/whl/cu12
 ```bash
 # Создайте папку для данных и сохранения весов обученных моделей
 mkdir -p data
-mkdir -p models
 
 # Скачайте файл с твитами
 curl -o data/tweets.txt https://code.s3.yandex.net/deep-learning/tweets.txt
