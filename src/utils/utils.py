@@ -170,10 +170,10 @@ def split_data(
     random_state: int = 42
 ) -> Tuple[List[Union[str, List[str]]], List[Union[str, List[str]]], List[Union[str, List[str]]]]:
     """
-    Разделяет обработанные тексты на train/val/test выборки.
+    Разделяет тексты (исходные или обработанные) на train/val/test выборки.
     
     Args:
-        processed_texts: Список обработанных текстов/токенов
+        processed_texts: Список текстов (сырых строк или обработанных токенов)
         force_reprocess: Принудительная переобработка, даже если файлы существуют
         save_data: Сохранять ли разделенные данные в файлы
         test_size: Доля test выборки от общего объема данных

@@ -7,6 +7,7 @@ import evaluate
 import pandas as pd
 import yaml
 from yaml.loader import SafeLoader
+from transformers import AutoTokenizer
 
 
 # Общие константы
@@ -21,3 +22,7 @@ with open(yaml_path) as file:
 
 # Загрузка ROUGE метрики
 ROUGE = evaluate.load("rouge")
+
+
+# Загрузка токенизатора
+TOKENIZER = AutoTokenizer.from_pretrained("bert-base-uncased")

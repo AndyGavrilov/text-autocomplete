@@ -69,6 +69,7 @@ def train_model(
     save_dir.mkdir(parents=True, exist_ok=True)
     best_rouge = 0.0
     best_model_path = save_dir / "best_model.pt"
+    best_model_epoch = None
 
     # Добавляем списки для графиков
     train_losses = []
@@ -134,7 +135,8 @@ def train_model(
         if val_rouge_l > best_rouge:
             best_rouge = val_rouge_l
             torch.save(model.state_dict(), best_model_path)
-            logger.info(f"Сохранена новая лучшая модель (ROUGE-L={best_rouge:.4f})")
+            best_model_epoch = epoch+1
+            logger.info(f"Сохранена новая лучшая модель (ROUGE-L={best_rouge:.4f}), эпоха {best_model_epoch}")
 
         # Сохранение модели каждой эпохи
         epoch_path = save_dir / f"model_epoch_{epoch+1}.pt"
@@ -142,7 +144,7 @@ def train_model(
         logger.info(f"Сохранена модель эпохи {epoch+1}")
 
     logger.info(f"Обучение завершено. Лучший ROUGE-L={best_rouge:.4f}")
-    logger.info(f"Лучшая модель сохранена в {best_model_path}")
+    logger.info(f"Лучшая модель сохранена в {best_model_path}, эпоха {best_model_epoch}")
 
 
     # Графики
